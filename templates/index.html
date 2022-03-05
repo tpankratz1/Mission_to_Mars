@@ -16,7 +16,7 @@
       <div class="jumbotron text-center">
         <h1>Mission to Mars</h1>
         <!-- Add a button to activate scraping script -->
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <p><a class="btn btn-info btn-xs" href="/scrape" role="button">Scrape New Data</a></p>
       </div>
 
       <!-- Add section for Mars News -->
@@ -26,7 +26,7 @@
             <div class="media-body">
               <h2>Latest Mars News</h2>
               <h4 class="media-heading">{{ mars.news_title }}</h4>
-              <p>{{ mars.news_paragraph }}</p>
+              <p class="lead">{{ mars.news_paragraph }}</p>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
           <!-- if images is False/None/non-existent, then default to error message -->
           <img
             src="{{mars.featured_image | default('static/images/error.png', true) }}"
-            class="img-responsive"
+            class="img-responsive img-rounded"
             alt="Responsive image"
           />
         </div>
@@ -61,9 +61,9 @@
         </div>
 
         {% for hemisphere in mars.hemispheres %}
-        <div class="col-md-6">
+        <div class="col-md-3">
           <div class="thumbnail">
-            <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="...">
+            <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="..." class="img-rounded img-responsive">
             <div class="caption">
               <h3>{{hemisphere.title}}</h3>
             </div>
